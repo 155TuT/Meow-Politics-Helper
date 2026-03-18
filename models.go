@@ -7,7 +7,7 @@ import (
 
 // --- 配置常量 ---
 const (
-	maogaiQuestionSourceDir         = "clean_outputs/maogao_202506_kang_outputs"
+	maogaiQuestionSourceDir         = "clean_outputs/maogai_202506_kang_outputs"
 	xigaiLiQuestionSourceDir        = "clean_outputs/xigai_202412_li_outputs"
 	xigaiYangQuestionSourceDir      = "clean_outputs/xigai_202512_yang_outputs"
 	maogaiMaxChapterIndex           = 8
