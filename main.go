@@ -13,7 +13,7 @@ import (
 	"github.com/cloudwego/hertz/pkg/app/server"
 )
 
-//go:embed clean_outputs/* quiz.html
+//go:embed clean_outputs/* quiz.html quiz.css
 var embeddedFS embed.FS
 
 // openBrowser 在服务器启动后打开浏览器
@@ -68,6 +68,15 @@ func main() {
 			return
 		}
 		c.Data(200, "text/html", data)
+	})
+
+	h.GET("/quiz.css", func(ctx context.Context, c *app.RequestContext) {
+		data, err := embeddedFS.ReadFile("quiz.css")
+		if err != nil {
+			c.String(404, "File not found")
+			return
+		}
+		c.Data(200, "text/css", data)
 	})
 
 	// API 路由组
