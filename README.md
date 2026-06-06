@@ -16,14 +16,13 @@
 
 ### 直接下载使用（推荐）
 
-从 [Releases](https://github.com/ShaddockNH3/Meow-Politics-Helper/releases) 下载对应平台的可执行文件：
+本人维护的是旧版本，可从 [155TuT-Releases](https://github.com/155TuT/Meow-Politics-Helper/releases) 下载可执行二进制文件：
 
 - Windows: `Meow-Politics-Helper-windows-amd64.exe`
-- Linux: `Meow-Politics-Helper-linux-amd64`
 
 下载后双击运行，会自动在浏览器中打开学习界面。
 
-## 本地编译运行
+### 本地编译运行
 
 如果你熟悉开发，可以克隆仓库后在项目根目录运行：
 
