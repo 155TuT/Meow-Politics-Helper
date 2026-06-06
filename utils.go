@@ -21,18 +21,20 @@ import (
 )
 
 var (
-	maogaiQuestionsByChapter    map[string][]Question   // 毛概题目
-	xigaiLiQuestionsByChapter   map[string][]Question   // 习概（李老师）题目
-	xigaiYangQuestionsByChapter map[string][]Question   // 习概（杨老师）题目
-	questionMapByID             map[string]Question     // 通过唯一ID (课程_章节_索引) 快速查找原始题目
-	userSessions                map[string]*UserSession // 内存中的用户会话
-	sessionsMu                  sync.RWMutex            // 保护 userSessions 映射
+	maogaiQuestionsByChapter           map[string][]Question   // 毛概（2025上康老师）题目
+	maogai202606KangQuestionsByChapter map[string][]Question   // 毛概（2026康老师）题目
+	xigaiLiQuestionsByChapter          map[string][]Question   // 习概（李老师）题目
+	xigaiYangQuestionsByChapter        map[string][]Question   // 习概（杨老师）题目
+	questionMapByID                    map[string]Question     // 通过唯一ID (课程_章节_索引) 快速查找原始题目
+	userSessions                       map[string]*UserSession // 内存中的用户会话
+	sessionsMu                         sync.RWMutex            // 保护 userSessions 映射
 )
 
 // init 在程序启动时执行初始化操作
 func init() {
 	rand.Seed(time.Now().UnixNano()) // 初始化随机数生成器
 	maogaiQuestionsByChapter = make(map[string][]Question)
+	maogai202606KangQuestionsByChapter = make(map[string][]Question)
 	xigaiLiQuestionsByChapter = make(map[string][]Question)
 	xigaiYangQuestionsByChapter = make(map[string][]Question)
 	questionMapByID = make(map[string]Question)
@@ -50,12 +52,18 @@ func loadAllQuestionsGlobal() {
 	log.Println("喵~ 正在努力加载全局题库中...")
 
 	// 加载毛概题库
-	log.Println("加载毛概题库...")
+	log.Println("加载毛概题库（2025上康老师）...")
 	for i := 0; i <= maogaiMaxChapterIndex; i++ {
 		chapterKey := strconv.Itoa(i)
 		// 嵌入文件系统使用正斜杠，不使用filepath.Join
 		filePath := maogaiQuestionSourceDir + "/" + chapterKey + ".json"
-		loadChapterQuestions(filePath, chapterKey, "maogai", maogaiQuestionsByChapter)
+		loadChapterQuestions(filePath, chapterKey, courseMaogai202506Kang, maogaiQuestionsByChapter)
+	}
+	log.Println("加载毛概题库（2026康老师）...")
+	for i := 0; i <= maogai202606KangMaxChapterIndex; i++ {
+		chapterKey := strconv.Itoa(i)
+		filePath := maogai202606KangQuestionSourceDir + "/" + chapterKey + ".json"
+		loadChapterQuestions(filePath, chapterKey, courseMaogai202606Kang, maogai202606KangQuestionsByChapter)
 	}
 
 	// 加载习概题库
@@ -64,13 +72,13 @@ func loadAllQuestionsGlobal() {
 	for i := 0; i <= xigaiLiMaxChapterIndex; i++ {
 		chapterKey := strconv.Itoa(i)
 		filePath := xigaiLiQuestionSourceDir + "/" + chapterKey + ".json"
-		loadChapterQuestions(filePath, chapterKey, "xigai_li", xigaiLiQuestionsByChapter)
+		loadChapterQuestions(filePath, chapterKey, courseXigai202412Li, xigaiLiQuestionsByChapter)
 	}
 	// 杨老师的习概题库（导论 + 多章节）
 	for i := 0; i <= xigaiYangMaxChapterIndex; i++ {
 		chapterKey := strconv.Itoa(i)
 		filePath := xigaiYangQuestionSourceDir + "/" + chapterKey + ".json"
-		loadChapterQuestions(filePath, chapterKey, "xigai_yang", xigaiYangQuestionsByChapter)
+		loadChapterQuestions(filePath, chapterKey, courseXigai202512Yang, xigaiYangQuestionsByChapter)
 	}
 
 	log.Println("喵~ 全局题库加载完毕！")
@@ -107,18 +115,33 @@ func loadChapterQuestions(filePath, chapterKey, course string, targetMap map[str
 
 // getIncorrectQuestionsFileName 根据课程返回对应的错题文件名
 func getIncorrectQuestionsFileName(course string) string {
-	// 为每个课程返回专用的错题文件名。"xigai_li" 与 "xigai_yang" 使用各自文件。
-	switch course {
-	case "xigai_li":
+	switch normalizeCourseKey(course) {
+	case courseMaogai202606Kang:
+		return maogai202606KangIncorrectQuestionsFile
+	case courseXigai202412Li:
 		return xigaiLiIncorrectQuestionsFile
-	case "xigai_yang":
+	case courseXigai202512Yang:
 		return xigaiYangIncorrectQuestionsFile
 	default:
-		// 兼容老数据：如果传入的 course 以 "xigai" 开头但不是上面两种明确的变体，回退到旧的统一文件名
 		if strings.HasPrefix(course, "xigai") {
 			return xigaiIncorrectQuestionsFile
 		}
 		return maogaiIncorrectQuestionsFile
+	}
+}
+
+func normalizeCourseKey(course string) string {
+	switch course {
+	case "", "maogai", courseMaogai202506Kang:
+		return courseMaogai202506Kang
+	case courseMaogai202606Kang:
+		return courseMaogai202606Kang
+	case "xigai_li", courseXigai202412Li:
+		return courseXigai202412Li
+	case "xigai_yang", courseXigai202512Yang:
+		return courseXigai202512Yang
+	default:
+		return course
 	}
 }
 
@@ -216,6 +239,7 @@ func getOrCreateUserSession(userID string) *UserSession {
 
 // _getQuestionsForProcessing 根据章节和顺序选择,从全局题库中筛选和排序题目
 func _getQuestionsForProcessing(course string, chapterChoices []string, orderChoice string) []Question {
+	course = normalizeCourseKey(course)
 	var questionsToProcess []Question
 	var targetChapterKeys []string
 	isSelectAll := false
@@ -225,13 +249,16 @@ func _getQuestionsForProcessing(course string, chapterChoices []string, orderCho
 	var maxChapterIdx int
 
 	switch course {
-	case "maogai":
+	case courseMaogai202506Kang:
 		questionsByChapter = maogaiQuestionsByChapter
 		maxChapterIdx = maogaiMaxChapterIndex
-	case "xigai_li":
+	case courseMaogai202606Kang:
+		questionsByChapter = maogai202606KangQuestionsByChapter
+		maxChapterIdx = maogai202606KangMaxChapterIndex
+	case courseXigai202412Li:
 		questionsByChapter = xigaiLiQuestionsByChapter
 		maxChapterIdx = xigaiLiMaxChapterIndex
-	case "xigai_yang":
+	case courseXigai202512Yang:
 		questionsByChapter = xigaiYangQuestionsByChapter
 		maxChapterIdx = xigaiYangMaxChapterIndex
 	default:
@@ -396,21 +423,22 @@ func QuickReviewStartHandler(ctx context.Context, c *app.RequestContext) {
 	session.mu.Lock() // 如果要修改会话状态（如 CurrentMode），则加锁
 	defer session.mu.Unlock()
 
-	selectedQuestions := _getQuestionsForProcessing(req.Course, req.ChapterChoice, req.OrderChoice)
+	course := normalizeCourseKey(req.Course)
+	selectedQuestions := _getQuestionsForProcessing(course, req.ChapterChoice, req.OrderChoice)
 	if len(selectedQuestions) == 0 {
 		c.JSON(consts.StatusOK, utils.H{"message": "所选范围没有题目。", "total_questions": 0, "questions": []QuestionOutput{}})
 		return
 	}
 
-	outputQuestions := convertQuestionsToOutput(selectedQuestions, 0, req.Course) // 0 表示从列表开头计数
-	session.CurrentMode = "review"                                                // 设置当前模式
-	session.CurrentCourse = req.Course                                            // 设置当前课程
+	outputQuestions := convertQuestionsToOutput(selectedQuestions, 0, course) // 0 表示从列表开头计数
+	session.CurrentMode = "review"                                            // 设置当前模式
+	session.CurrentCourse = course                                            // 设置当前课程
 	// 如果 /api/review/next 仍然用于逐步获取，则需要存储这些问题
 	// 否则，如果前端一次性处理所有问题，这一步可以省略或用于其他目的
 	session.CurrentQuestions = outputQuestions
 	session.CurrentQuestionIndex = 0 // 从第一题开始
 
-	log.Printf("用户 %s 开始速刷模式，课程: %s, 章节: %v, 顺序: %s, 返回 %d 题", req.UserID, req.Course, req.ChapterChoice, req.OrderChoice, len(outputQuestions))
+	log.Printf("用户 %s 开始速刷模式，课程: %s, 章节: %v, 顺序: %s, 返回 %d 题", req.UserID, course, req.ChapterChoice, req.OrderChoice, len(outputQuestions))
 	c.JSON(consts.StatusOK, utils.H{
 		"message":         "速刷模式开始",
 		"total_questions": len(outputQuestions),
@@ -464,21 +492,22 @@ func QuizStartHandler(ctx context.Context, c *app.RequestContext) {
 	session.mu.Lock()
 	defer session.mu.Unlock()
 
-	selectedQuestions := _getQuestionsForProcessing(req.Course, req.ChapterChoice, req.OrderChoice)
+	course := normalizeCourseKey(req.Course)
+	selectedQuestions := _getQuestionsForProcessing(course, req.ChapterChoice, req.OrderChoice)
 	if len(selectedQuestions) == 0 {
 		c.JSON(consts.StatusOK, utils.H{"message": "所选范围没有题目。", "total_questions": 0, "questions": []QuestionOutput{}})
 		return
 	}
 
-	outputQuestions := convertQuestionsToOutput(selectedQuestions, 0, req.Course)
-	session.CurrentMode = "quiz"       // 设置模式，用于提交答案时的上下文
-	session.CurrentCourse = req.Course // 设置当前课程
+	outputQuestions := convertQuestionsToOutput(selectedQuestions, 0, course)
+	session.CurrentMode = "quiz"   // 设置模式，用于提交答案时的上下文
+	session.CurrentCourse = course // 设置当前课程
 
 	// 如果前端完全管理题目列表和导航，则不在会话中存储 CurrentQuestions 和 CurrentQuestionIndex
 	// session.CurrentQuestions = outputQuestions
 	// session.CurrentQuestionIndex = 0
 
-	log.Printf("用户 %s 开始答题模式，课程: %s, 章节: %v, 顺序: %s, 返回 %d 题", req.UserID, req.Course, req.ChapterChoice, req.OrderChoice, len(outputQuestions))
+	log.Printf("用户 %s 开始答题模式，课程: %s, 章节: %v, 顺序: %s, 返回 %d 题", req.UserID, course, req.ChapterChoice, req.OrderChoice, len(outputQuestions))
 	c.JSON(consts.StatusOK, utils.H{
 		"message":         "答题模式开始",
 		"total_questions": len(outputQuestions),
@@ -509,9 +538,10 @@ func SubmitAnswerHandler(ctx context.Context, c *app.RequestContext) {
 		c.JSON(consts.StatusBadRequest, utils.H{"error": "会话中缺少课程信息"})
 		return
 	}
+	currentCourse = normalizeCourseKey(currentCourse)
 
 	// 从 QuizQuestionID 中解析出原始题目信息 (课程、章节号和原始索引)
-	// QuizQuestionID 格式为 "quiz_<course>_<chapter>_<index>"，其中 course 可能包含下划线（例如 xigai_li）
+	// QuizQuestionID 格式为 "quiz_<course>_<chapter>_<index>"，其中 course 可能包含下划线
 	raw := strings.TrimPrefix(req.QuizQuestionID, "quiz_")
 	parts := strings.Split(raw, "_")
 	if len(parts) < 3 { // 至少需要课程、章节和索引三部分
@@ -520,7 +550,7 @@ func SubmitAnswerHandler(ctx context.Context, c *app.RequestContext) {
 		return
 	}
 	// course 可能有多个下划线段，章节是倒数第二段，索引是最后一段
-	coursePart := strings.Join(parts[:len(parts)-2], "_")
+	coursePart := normalizeCourseKey(strings.Join(parts[:len(parts)-2], "_"))
 	chapterPart := parts[len(parts)-2]
 	indexPart := parts[len(parts)-1]
 	originalQuestionIDKey := fmt.Sprintf("%s_%s_%s", coursePart, chapterPart, indexPart) // 重组为 "course_chapter_index"
@@ -539,10 +569,11 @@ func SubmitAnswerHandler(ctx context.Context, c *app.RequestContext) {
 		return
 	}
 
-	statKey := fmt.Sprintf("%s_%s", originalQuestion.OriginalChapterKey, originalQuestion.QuestionNumber) // 统计文件中的键
+	statKey := fmt.Sprintf("%s_%s_%s", currentCourse, originalQuestion.OriginalChapterKey, originalQuestion.QuestionNumber) // 统计文件中的键
 	statEntry, statExists := userStats[statKey]
 	if !statExists {
 		statEntry = UserQuestionStat{
+			Course:                 currentCourse,
 			OriginalChapterKey:     originalQuestion.OriginalChapterKey,
 			OriginalQuestionNumber: originalQuestion.QuestionNumber,
 		}
@@ -617,10 +648,11 @@ func IncorrectQuestionsReviewStartHandler(ctx context.Context, c *app.RequestCon
 	session.mu.Lock()
 	defer session.mu.Unlock()
 
-	incorrectFileName := getIncorrectQuestionsFileName(req.Course)
+	course := normalizeCourseKey(req.Course)
+	incorrectFileName := getIncorrectQuestionsFileName(course)
 	userIncorrectRaw := []UserIncorrectQuestion{}
 	if err := loadUserJSONData(req.UserID, incorrectFileName, &userIncorrectRaw); err != nil {
-		log.Printf("用户 %s 加载 %s 课程错题本失败 (回顾模式开始): %v", req.UserID, req.Course, err)
+		log.Printf("用户 %s 加载 %s 课程错题本失败 (回顾模式开始): %v", req.UserID, course, err)
 		c.JSON(consts.StatusInternalServerError, utils.H{"error": "加载用户错题本失败"})
 		return
 	}
@@ -635,9 +667,9 @@ func IncorrectQuestionsReviewStartHandler(ctx context.Context, c *app.RequestCon
 		userIncorrectRaw[i], userIncorrectRaw[j] = userIncorrectRaw[j], userIncorrectRaw[i]
 	})
 
-	outputQuestions := convertUserIncorrectToOutput(userIncorrectRaw, 0, req.Course) // 转换为API输出格式
+	outputQuestions := convertUserIncorrectToOutput(userIncorrectRaw, 0, course) // 转换为API输出格式
 	session.CurrentMode = "incorrect_review"
-	session.CurrentCourse = req.Course // 设置当前课程
+	session.CurrentCourse = course // 设置当前课程
 	// 如果前端需要服务器逐步推送，则存储
 	// session.CurrentQuestions = outputQuestions
 	// session.CurrentQuestionIndex = 0
@@ -689,8 +721,9 @@ func DeleteIncorrectQuestionHandler(ctx context.Context, c *app.RequestContext) 
 
 	if currentCourse == "" {
 		log.Printf("警告: 用户 %s 的 session 中没有课程信息，默认使用毛概", req.UserID)
-		currentCourse = "maogai"
+		currentCourse = courseMaogai202506Kang
 	}
+	currentCourse = normalizeCourseKey(currentCourse)
 
 	// 加载课程特定的错题文件
 	incorrectFileName := getIncorrectQuestionsFileName(currentCourse)
@@ -780,6 +813,18 @@ func UserDataClearHandler(ctx context.Context, c *app.RequestContext) {
 		}
 	} else if !os.IsNotExist(err) {
 		log.Printf("错误: 检查毛概错题文件 %s 时发生错误: %v", maogaiIncorrectPath, err)
+	}
+
+	// 清理 2026 毛概康老师错题文件
+	maogai202606KangIncorrectPath := getUserDataPath(userID, maogai202606KangIncorrectQuestionsFile)
+	if _, err := os.Stat(maogai202606KangIncorrectPath); err == nil {
+		if err := os.Rename(maogai202606KangIncorrectPath, maogai202606KangIncorrectPath+time.Now().Format(".2006_01_02_15_04_05.bak")); err != nil {
+			log.Printf("错误: 用户 %s 清理 2026 毛概错题文件 %s 失败: %v", userID, maogai202606KangIncorrectPath, err)
+		} else {
+			log.Printf("信息: 用户 %s 的 2026 毛概错题文件 %s 已清理。", userID, maogai202606KangIncorrectPath)
+		}
+	} else if !os.IsNotExist(err) {
+		log.Printf("错误: 检查 2026 毛概错题文件 %s 时发生错误: %v", maogai202606KangIncorrectPath, err)
 	}
 
 	// 清理习概相关的错题文件（支持李老师和杨老师的独立错题簿，同时兼容旧的统一文件）

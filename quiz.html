@@ -71,20 +71,25 @@
                 <!-- 课程选择 -->
                 <div class="mb-6">
                     <h3 class="text-lg font-semibold text-gray-700 mb-3">📚 选择课程</h3>
-                    <div class="flex gap-3">
-                        <button @click="selectedCourse = 'maogai'" 
-                                :class="selectedCourse === 'maogai' ? 'btn-primary' : 'btn-outline'"
-                                class="btn flex-1">
+                    <div class="course-grid">
+                        <button @click="selectCourse('maogai_202506_kang')"
+                                :class="selectedCourse === 'maogai_202506_kang' ? 'btn-primary' : 'btn-outline'"
+                                class="btn course-btn">
                             2025上毛概康老师
                         </button>
-                        <button @click="selectedCourse = 'xigai_li'" 
-                                :class="selectedCourse === 'xigai_li' ? 'btn-primary' : 'btn-outline'"
-                                class="btn flex-1">
+                        <button @click="selectCourse('maogai_202606_kang')"
+                                :class="selectedCourse === 'maogai_202606_kang' ? 'btn-primary' : 'btn-outline'"
+                                class="btn course-btn">
+                            2026上毛概康老师
+                        </button>
+                        <button @click="selectCourse('xigai_202412_li')"
+                                :class="selectedCourse === 'xigai_202412_li' ? 'btn-primary' : 'btn-outline'"
+                                class="btn course-btn">
                             2024下习概李老师
                         </button>
-                        <button @click="selectedCourse = 'xigai_yang'" 
-                                :class="selectedCourse === 'xigai_yang' ? 'btn-primary' : 'btn-outline'"
-                                class="btn flex-1">
+                        <button @click="selectCourse('xigai_202512_yang')"
+                                :class="selectedCourse === 'xigai_202512_yang' ? 'btn-primary' : 'btn-outline'"
+                                class="btn course-btn">
                             2025下习概杨老师
                         </button>
                     </div>
@@ -116,7 +121,7 @@
                     <p class="text-sm text-gray-600">
                         <strong>当前课程：</strong>
                         <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">
-                            {{ selectedCourse === 'maogai' ? '毛概' : '习概' }}
+                            {{ selectedCourseLabel }}
                         </span>
                     </p>
                 </div>
@@ -135,7 +140,7 @@
                     <p class="text-sm text-gray-600">
                         <strong>当前课程：</strong>
                         <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">
-                            {{ selectedCourse === 'maogai' ? '毛概' : '习概' }}
+                            {{ selectedCourseLabel }}
                         </span>
                     </p>
                 </div>
@@ -149,7 +154,7 @@
                             {{ chapter.text }}
                         </button>
                     </div>
-                    <p class="text-xs text-gray-500 mt-1">{{ selectedCourse === 'xigai_li' ? '期末复习' : '提示：选择"全部章节"会自动选中所有章节。再次点击已选章节可取消。' }}</p>
+                    <p class="text-xs text-gray-500 mt-1">{{ selectedCourse === 'xigai_202412_li' ? '期末复习' : '提示：选择"全部章节"会自动选中所有章节。再次点击已选章节可取消。' }}</p>
                 </div>
                 <div class="mb-6" v-if="activeMode !== 'incorrectReview'">
                     <label class="block text-gray-700 text-sm font-bold mb-2">题目顺序：</label>
@@ -264,16 +269,25 @@
                 const inputUserId = ref(''); 
 
                 const API_BASE_URL = ''; 
-                const selectedCourse = ref('maogai'); // 默认选择毛概
+                const selectedCourse = ref('maogai_202506_kang'); // 默认选择毛概
+                const courseLabels = {
+                    maogai_202506_kang: '2025上毛概康老师',
+                    maogai_202606_kang: '2026上毛概康老师',
+                    xigai_202412_li: '2024下习概李老师',
+                    xigai_202512_yang: '2025下习概杨老师'
+                };
+                const selectedCourseLabel = computed(() => courseLabels[selectedCourse.value] || selectedCourse.value);
                 const availableChapters = computed(() => {
-                    // 支持三种 course key: 'maogai', 'xigai_li'(李老师 单章), 'xigai_yang'(杨老师 多章)
-                    if (selectedCourse.value === 'xigai_li') {
+                    // course key 与 clean_outputs 下的目录名保持一致，只去掉末尾 "_outputs"。
+                    if (selectedCourse.value === 'xigai_202412_li') {
                         return [{ value: '0', text: '期末复习' }];
-                    } else if (selectedCourse.value === 'xigai_yang') {
+                    } else if (selectedCourse.value === 'xigai_202512_yang') {
                         // 杨老师题库：章节 0..17
                         const chapters = [...Array.from({ length: 18 }, (_, i) => ({ value: i.toString(), text: `章节 ${i}` }))];
                         chapters.push({ value: 'all', text: '全部章节' });
                         return chapters;
+                    } else if (selectedCourse.value === 'maogai_202606_kang') {
+                        return [...Array.from({ length: 8 }, (_, i) => ({ value: i.toString(), text: `章节 ${i}` })), { value: 'all', text: '全部章节' }];
                     } else {
                         return [...Array.from({ length: 9 }, (_, i) => ({ value: i.toString(), text: `章节 ${i}` })), { value: 'all', text: '全部章节' }];
                     }
@@ -460,7 +474,7 @@
                     selectedChapters.value = []; // 清空之前的章节选择
                     
                     // 如果是习概（任意 xigai 变体），自动选择第0章
-                    if (course === 'xigai_li' || course === 'xigai_yang') {
+                    if (course === 'xigai_202412_li' || course === 'xigai_202512_yang') {
                         selectedChapters.value = ['0'];
                     }
                 };
@@ -472,7 +486,7 @@
                     }
                     
                     // 如果是习概（任意 xigai 变体），自动选择第0章
-                    if ((selectedCourse.value === 'xigai_li' || selectedCourse.value === 'xigai_yang') && !selectedChapters.value.includes('0')) {
+                    if ((selectedCourse.value === 'xigai_202412_li' || selectedCourse.value === 'xigai_202512_yang') && !selectedChapters.value.includes('0')) {
                         selectedChapters.value = ['0'];
                     }
                     
@@ -910,7 +924,7 @@
 
                 return {
                     isLoading, errorMessage, userIdError, currentView, viewTitle, userId, inputUserId,
-                    availableChapters, selectedChapters, selectedOrder, selectedCourse,
+                    availableChapters, selectedChapters, selectedOrder, selectedCourse, selectedCourseLabel,
                     activeMode, modeDisplayName,
                     allModeQuestions, currentQuestion, totalQuestions, originalTotalQuestions, isQuizCompleted, currentQuestionIndex,
                     selectedAnswers, quizModeState, feedbackMessage, isCurrentAnswerCorrect, quizResults,

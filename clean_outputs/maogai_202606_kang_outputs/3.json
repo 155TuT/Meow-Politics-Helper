@@ -1,0 +1,1094 @@
+[
+    {
+        "question_number": "1",
+        "question_type": "单选题",
+        "question_text": "毛泽东认为，由于社会主义社会基本矛盾是非对抗性矛盾，因此，解决社会主义社会基本矛盾的途径是（）。",
+        "options": {
+            "A": "发动无产阶级文化大革命",
+            "B": "对生产资料的所有制进行社会主义改造",
+            "C": "发动一场新的暴力革命",
+            "D": "可以经过社会主义制度本身，不断地得到解决"
+        },
+        "correct_answer": "D",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "2",
+        "question_type": "单选题",
+        "question_text": "我国在社会主义建设中出现过急躁冒进、急于求成的倾向，其根本原因在于（）。",
+        "options": {
+            "A": "有希望中国尽快发展的良好愿望",
+            "B": "建设社会主义的任务极为繁重",
+            "C": "缺乏科学态度，不尊重客观规律",
+            "D": "建设社会主义没有经验"
+        },
+        "correct_answer": "C",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "3",
+        "question_type": "单选题",
+        "question_text": "下列关于中国社会主义建设道路初步探索的意义，错误的是（）。",
+        "options": {
+            "A": "确立了中国特色社会主义道路",
+            "B": "巩固和发展了我国的社会主义制度",
+            "C": "丰富了科学社会主义的理论和实践",
+            "D": "为开创中国特色社会主义提供了宝贵经验、理论准备、物质基础"
+        },
+        "correct_answer": "A",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "4",
+        "question_type": "单选题",
+        "question_text": "毛泽东在《关于正确处理人民内部矛盾的问题》的报告中指出，对于科学文化领域里的矛盾，实行（）。",
+        "options": {
+            "A": "用民主的方法解决人民内部矛盾",
+            "B": "百花齐放、百家争鸣的方针",
+            "C": "团结——批评——团结的方针",
+            "D": "长期共存、互相监督的方针"
+        },
+        "correct_answer": "B",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "5",
+        "question_type": "单选题",
+        "question_text": "在《关于正确处理人民内部矛盾的问题》中，毛泽东明确提出中国工业化道路问题，主要是指重工业、轻工业、农业关系，强调走（）。",
+        "options": {
+            "A": "有别于苏联的中国工业化道路",
+            "B": "中国特色社会主义道路",
+            "C": "社会主义改造道路",
+            "D": "多快好省建设社会主义道路"
+        },
+        "correct_answer": "A",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "6",
+        "question_type": "单选题",
+        "question_text": "中共八大后国家的主要矛盾是（）。",
+        "options": {
+            "A": "人民对于经济文化迅速发展的需要同当前经济文化不能满足人民需要的状况之间的矛盾",
+            "B": "无产阶级同资产阶级的矛盾",
+            "C": "先进生产关系和落后生产力之间的矛盾",
+            "D": "社会主义道路与资本主义道路的矛盾"
+        },
+        "correct_answer": "A",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "7",
+        "question_type": "单选题",
+        "question_text": "党的（）正确分析社会主义改造完成后主要矛盾，指出社会主义制度基本建立。",
+        "options": {
+            "A": "十二大",
+            "B": "七大",
+            "C": "八大",
+            "D": "十一届三中全会"
+        },
+        "correct_answer": "C",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "8",
+        "question_type": "单选题",
+        "question_text": "周恩来提出（）观点，知识分子绝大部分是工人阶级一部分。",
+        "options": {
+            "A": "知识分子绝大部分是工人阶级一部分",
+            "B": "知识分子是民族资产阶级一部分",
+            "C": "知识分子是新阶级",
+            "D": "知识分子是剥削阶级一部分"
+        },
+        "correct_answer": "A",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "9",
+        "question_type": "单选题",
+        "question_text": "毛泽东指出以工业为主导，把（）作为经济建设重点。",
+        "options": {
+            "A": "重工业",
+            "B": "轻工业",
+            "C": "服务业",
+            "D": "农业"
+        },
+        "correct_answer": "A",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "10",
+        "question_type": "单选题",
+        "question_text": "新中国制定（），从根本保证人民当家作主。",
+        "options": {
+            "A": "刑法",
+            "B": "婚姻法",
+            "C": "宪法",
+            "D": "民法"
+        },
+        "correct_answer": "C",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "11",
+        "question_type": "单选题",
+        "question_text": "提出“三个主体，三个补充”的是（）。",
+        "options": {
+            "A": "陈云",
+            "B": "毛泽东",
+            "C": "邓小平",
+            "D": "刘少奇"
+        },
+        "correct_answer": "A",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "12",
+        "question_type": "单选题",
+        "question_text": "不属于社会主义建设初步探索时期理论的是（）。",
+        "options": {
+            "A": "祖国统一和外交",
+            "B": "社会主义初级阶段",
+            "C": "中国工业化道路",
+            "D": "四个现代化"
+        },
+        "correct_answer": "B",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "13",
+        "question_type": "单选题",
+        "question_text": "中国（）落后，物质基础薄弱。",
+        "options": {
+            "A": "政治",
+            "B": "经济",
+            "C": "文化",
+            "D": "军事"
+        },
+        "correct_answer": "B",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "14",
+        "question_type": "单选题",
+        "question_text": "无产阶级政党根本组织原则是（）。",
+        "options": {
+            "A": "多党协商",
+            "B": "人民代表大会制度",
+            "C": "社会主义制度",
+            "D": "民主集中制"
+        },
+        "correct_answer": "D",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "15",
+        "question_type": "单选题",
+        "question_text": "《论十大关系》中国工业化道路最重要问题是（）。",
+        "options": {
+            "A": "工业与农业现代化",
+            "B": "重工业、轻工业、农业关系",
+            "C": "沿海与内地工业",
+            "D": "中央与地方"
+        },
+        "correct_answer": "B",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "16",
+        "question_type": "单选题",
+        "question_text": "社会主义社会基本矛盾是（）。",
+        "options": {
+            "A": "生产关系与生产力、上层建筑与经济基础矛盾",
+            "B": "无产阶级与资产阶级矛盾",
+            "C": "人民需要与落后生产矛盾",
+            "D": "人民内部非对抗矛盾"
+        },
+        "correct_answer": "A",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "17",
+        "question_type": "单选题",
+        "question_text": "不属于人民内部矛盾的是（）。",
+        "options": {
+            "A": "工农知识分子矛盾",
+            "B": "工农矛盾",
+            "C": "民主同集中矛盾",
+            "D": "敌对分子与人民矛盾"
+        },
+        "correct_answer": "D",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "18",
+        "question_type": "单选题",
+        "question_text": "明确以苏为鉴、独立自主探索社会主义道路的著作是（）。",
+        "options": {
+            "A": "《关于正确处理人民内部矛盾的问题》",
+            "B": "《新民主主义论》",
+            "C": "《中国革命和中国共产党》",
+            "D": "《论十大关系》"
+        },
+        "correct_answer": "D",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "19",
+        "question_type": "单选题",
+        "question_text": "社会主义社会基本矛盾特点是（）。",
+        "options": {
+            "A": "又相适应又相矛盾",
+            "B": "不相适应不相矛盾",
+            "C": "相矛盾",
+            "D": "相适应"
+        },
+        "correct_answer": "A",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "20",
+        "question_type": "单选题",
+        "question_text": "解决人民内部矛盾总方针是（）。",
+        "options": {
+            "A": "用民主方法",
+            "B": "专政+民主",
+            "C": "团结—批评—团结",
+            "D": "专政方法"
+        },
+        "correct_answer": "A",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "21",
+        "question_type": "单选题",
+        "question_text": "新中国诞生之初明确提出（）台湾方针。",
+        "options": {
+            "A": "和平解放",
+            "B": "武力解放",
+            "C": "一纲四目",
+            "D": "一国两制"
+        },
+        "correct_answer": "A",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "22",
+        "question_type": "单选题",
+        "question_text": "对改革开放前后历史评价错误的是（）。",
+        "options": {
+            "A": "正确评价，互不否定",
+            "B": "早知改革开放何必改造",
+            "C": "前为后积累条件",
+            "D": "正反经验为今天借鉴"
+        },
+        "correct_answer": "B",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "23",
+        "question_type": "单选题",
+        "question_text": "解决敌我矛盾用（）。",
+        "options": {
+            "A": "说服",
+            "B": "教育",
+            "C": "民主",
+            "D": "专政"
+        },
+        "correct_answer": "D",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "24",
+        "question_type": "单选题",
+        "question_text": "不属于人民内部矛盾的是（）。",
+        "options": {
+            "A": "工人阶级同民族资产阶级",
+            "B": "人民同敌视破坏社会主义势力",
+            "C": "工农之间",
+            "D": "工人阶级内部"
+        },
+        "correct_answer": "B",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "25",
+        "question_type": "单选题",
+        "question_text": "《论十大关系》基本方针是（）。",
+        "options": {
+            "A": "马克思主义中国化",
+            "B": "从实际出发不急于求成",
+            "C": "调动一切积极因素为社会主义服务",
+            "D": "认识主要矛盾发展生产力"
+        },
+        "correct_answer": "C",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "26",
+        "question_type": "单选题",
+        "question_text": "社会主义民主（）是人民当家作主。",
+        "options": {
+            "A": "本质",
+            "B": "目的",
+            "C": "任务",
+            "D": "目标"
+        },
+        "correct_answer": "A",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "27",
+        "question_type": "单选题",
+        "question_text": "系统论述社会主义矛盾理论著作是（）。",
+        "options": {
+            "A": "《中国社会各阶级分析》",
+            "B": "《新民主主义论》",
+            "C": "《关于正确处理人民内部矛盾的问题》",
+            "D": "《论十大关系》"
+        },
+        "correct_answer": "C",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "28",
+        "question_type": "单选题",
+        "question_text": "八大提出扩大民主，反对（）。",
+        "options": {
+            "A": "封建专制",
+            "B": "个人主义",
+            "C": "自由主义",
+            "D": "官僚主义"
+        },
+        "correct_answer": "D",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "29",
+        "question_type": "单选题",
+        "question_text": "实现工业化方针不包括（）。",
+        "options": {
+            "A": "国家、集体、个人兼顾",
+            "B": "农业为基础、工业为主导、农轻重为序",
+            "C": "两条腿走路",
+            "D": "中央地方工业并举"
+        },
+        "correct_answer": "A",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "30",
+        "question_type": "单选题",
+        "question_text": "“调动一切积极因素”出自（）。",
+        "options": {
+            "A": "《论十大关系》",
+            "B": "《关于正确处理人民内部矛盾的问题》",
+            "C": "《论人民民主专政》",
+            "D": "《不要四面出击》"
+        },
+        "correct_answer": "A",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "31",
+        "question_type": "单选题",
+        "question_text": "社会主义基本矛盾性质是（）。",
+        "options": {
+            "A": "非对抗为主",
+            "B": "对抗为主",
+            "C": "非对抗性",
+            "D": "对抗性"
+        },
+        "correct_answer": "C",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "32",
+        "question_type": "单选题",
+        "question_text": "不属于民主方法的是（）。",
+        "options": {
+            "A": "剥夺政治权利",
+            "B": "讨论",
+            "C": "说服教育",
+            "D": "批评"
+        },
+        "correct_answer": "A",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "33",
+        "question_type": "单选题",
+        "question_text": "社会主义分两阶段：不发达、（）。",
+        "options": {
+            "A": "共产主义初级",
+            "B": "高级阶段",
+            "C": "比较发达",
+            "D": "初级阶段"
+        },
+        "correct_answer": "C",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "34",
+        "question_type": "单选题",
+        "question_text": "四个现代化关键在（）。",
+        "options": {
+            "A": "工业",
+            "B": "科学技术",
+            "C": "教育",
+            "D": "农业"
+        },
+        "correct_answer": "B",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "35",
+        "question_type": "单选题",
+        "question_text": "争取（），发展亚非拉。",
+        "options": {
+            "A": "统一",
+            "B": "一纲四目",
+            "C": "一边倒",
+            "D": "中间地带"
+        },
+        "correct_answer": "D",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "36",
+        "question_type": "单选题",
+        "question_text": "《论十大关系》前五条实际明确（）。",
+        "options": {
+            "A": "中国工业化道路",
+            "B": "经济改革",
+            "C": "工业发展",
+            "D": "平衡发展"
+        },
+        "correct_answer": "A",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "37",
+        "question_type": "单选题",
+        "question_text": "毛泽东、刘少奇、周恩来提出（）。",
+        "options": {
+            "A": "公有制为主体",
+            "B": "资本主义经济作补充",
+            "C": "发展手工业多种经营",
+            "D": "三个主体三个补充"
+        },
+        "correct_answer": "B",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "38",
+        "question_type": "单选题",
+        "question_text": "正确主张被贴（）标签批判。",
+        "options": {
+            "A": "资产阶级",
+            "B": "社会斗争",
+            "C": "阶级斗争",
+            "D": "资本主义"
+        },
+        "correct_answer": "D",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "39",
+        "question_type": "单选题",
+        "question_text": "第一步建成独立完整的（）和国民经济体系。",
+        "options": {
+            "A": "教育",
+            "B": "工业",
+            "C": "科技",
+            "D": "农业"
+        },
+        "correct_answer": "B",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "1",
+        "question_type": "多选题",
+        "question_text": "调动积极因素包括（）。",
+        "options": {
+            "A": "国内国外",
+            "B": "党内党外",
+            "C": "直接间接",
+            "D": "偶然必然"
+        },
+        "correct_answer": "ABC",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "2",
+        "question_type": "多选题",
+        "question_text": "人民内部矛盾包括（）。",
+        "options": {
+            "A": "知识分子内部",
+            "B": "工人阶级内部",
+            "C": "工人同民族资产阶级",
+            "D": "农民阶级内部"
+        },
+        "correct_answer": "ABCD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "3",
+        "question_type": "多选题",
+        "question_text": "社会主义分（）。",
+        "options": {
+            "A": "相对发达",
+            "B": "发达",
+            "C": "不发达",
+            "D": "比较发达"
+        },
+        "correct_answer": "CD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "4",
+        "question_type": "多选题",
+        "question_text": "探索意义（）。",
+        "options": {
+            "A": "巩固社会主义制度",
+            "B": "为资本主义借鉴",
+            "C": "丰富科学社会主义",
+            "D": "为中国特色社会主义准备"
+        },
+        "correct_answer": "ACD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "5",
+        "question_type": "多选题",
+        "question_text": "国民经济总方针以（）为序。",
+        "options": {
+            "A": "轻工业",
+            "B": "农业",
+            "C": "重工业",
+            "D": "制造业"
+        },
+        "correct_answer": "ABC",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "6",
+        "question_type": "多选题",
+        "question_text": "处理人民内部矛盾方针原则（）。",
+        "options": {
+            "A": "双百方针",
+            "B": "民主集中制",
+            "C": "团结—批评—团结",
+            "D": "兼顾国家集体个人"
+        },
+        "correct_answer": "ABCD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "7",
+        "question_type": "多选题",
+        "question_text": "两条腿走路包括（）。",
+        "options": {
+            "A": "中央地方工业并举",
+            "B": "轻重工业并举",
+            "C": "内外资并举",
+            "D": "沿海内地并举"
+        },
+        "correct_answer": "ABD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "8",
+        "question_type": "多选题",
+        "question_text": "民主集中制政治局面（）。",
+        "options": {
+            "A": "纪律又自由",
+            "B": "统一意志",
+            "C": "集中又民主",
+            "D": "心情舒畅生动活泼"
+        },
+        "correct_answer": "ABCD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "9",
+        "question_type": "多选题",
+        "question_text": "企业民主管理（）。",
+        "options": {
+            "A": "三结合",
+            "B": "三个主体三个补充",
+            "C": "改革规章制度",
+            "D": "干部参加劳动、工人参加管理"
+        },
+        "correct_answer": "AD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "10",
+        "question_type": "多选题",
+        "question_text": "忽视各项（）科学论证。",
+        "options": {
+            "A": "经济计划",
+            "B": "文化政策",
+            "C": "经济措施",
+            "D": "经济政策"
+        },
+        "correct_answer": "ACD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "11",
+        "question_type": "多选题",
+        "question_text": "探索表明（）。",
+        "options": {
+            "A": "为各国社会主义提供借鉴",
+            "B": "无固定模式",
+            "C": "独立自主走自己路",
+            "D": "左倾指导"
+        },
+        "correct_answer": "ABC",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "12",
+        "question_type": "多选题",
+        "question_text": "《关于正确处理人民内部矛盾的问题》指出（）。",
+        "options": {
+            "A": "基本矛盾性质同旧社会一样",
+            "B": "分敌我、人民内部两类矛盾",
+            "C": "可通过制度自我完善解决",
+            "D": "社会主义充满矛盾"
+        },
+        "correct_answer": "BCD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "13",
+        "question_type": "多选题",
+        "question_text": "对建设规律认识过程（）。",
+        "options": {
+            "A": "少经验到多经验",
+            "B": "从实践出发",
+            "C": "无经验到有经验",
+            "D": "必然王国到自由王国"
+        },
+        "correct_answer": "ABCD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "14",
+        "question_type": "多选题",
+        "question_text": "保证党的决策（）。",
+        "options": {
+            "A": "民主化",
+            "B": "全面化",
+            "C": "科学化",
+            "D": "速度化"
+        },
+        "correct_answer": "AC",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "15",
+        "question_type": "多选题",
+        "question_text": "执政党必须（）。",
+        "options": {
+            "A": "确保非党员民主",
+            "B": "确保党员民主",
+            "C": "阶级民主",
+            "D": "党内民主"
+        },
+        "correct_answer": "BD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "16",
+        "question_type": "多选题",
+        "question_text": "发展国民经济总方针（）。",
+        "options": {
+            "A": "农业为基础",
+            "B": "重轻农为序",
+            "C": "工业为主导",
+            "D": "农轻重为序"
+        },
+        "correct_answer": "ACD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "17",
+        "question_type": "多选题",
+        "question_text": "正确处理人民内部矛盾着眼点（）。",
+        "options": {
+            "A": "阶级斗争为纲",
+            "B": "转到建设",
+            "C": "团结一切力量",
+            "D": "调动一切积极因素"
+        },
+        "correct_answer": "BCD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "18",
+        "question_type": "多选题",
+        "question_text": "初步探索理论成果（）。",
+        "options": {
+            "A": "中国工业化道路",
+            "B": "中国特色社会主义道路",
+            "C": "正确处理社会矛盾",
+            "D": "调动一切积极因素"
+        },
+        "correct_answer": "ACD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "19",
+        "question_type": "多选题",
+        "question_text": "经验教训（）。",
+        "options": {
+            "A": "马克思主义中国化",
+            "B": "民主法制、民主集中制、执政党建设",
+            "C": "正确认识主要矛盾、发展生产力、实事求是",
+            "D": "对外开放、吸收文明成果"
+        },
+        "correct_answer": "ABCD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "20",
+        "question_type": "多选题",
+        "question_text": "第二次结合说明（）。",
+        "options": {
+            "A": "探索中国社会主义道路",
+            "B": "改革开放",
+            "C": "摆脱苏联模式",
+            "D": "重新认识什么是社会主义"
+        },
+        "correct_answer": "AC",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "21",
+        "question_type": "多选题",
+        "question_text": "社会主义基本矛盾（）。",
+        "options": {
+            "A": "人民需要同落后生产矛盾",
+            "B": "上层建筑经济基础",
+            "C": "先进工业国要求与农业国现实",
+            "D": "生产关系生产力"
+        },
+        "correct_answer": "BD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "22",
+        "question_type": "多选题",
+        "question_text": "教育方针使受教育者在（）发展。",
+        "options": {
+            "A": "美育",
+            "B": "智育",
+            "C": "德育",
+            "D": "体育"
+        },
+        "correct_answer": "ABCD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "23",
+        "question_type": "多选题",
+        "question_text": "改革开放前后关系（）。",
+        "options": {
+            "A": "不割裂不对立",
+            "B": "都是党领导社会主义建设",
+            "C": "互不否定",
+            "D": "前为后积累条件"
+        },
+        "correct_answer": "ABCD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "24",
+        "question_type": "多选题",
+        "question_text": "坚持（）反对个人崇拜。",
+        "options": {
+            "A": "民主制度",
+            "B": "个人决断",
+            "C": "民主集中制",
+            "D": "集体领导"
+        },
+        "correct_answer": "CD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "25",
+        "question_type": "多选题",
+        "question_text": "毛泽东社会主义阶段思想（）。",
+        "options": {
+            "A": "后阶段更长",
+            "B": "不发达、比较发达",
+            "C": "后阶段进入共产主义",
+            "D": "初级、高级"
+        },
+        "correct_answer": "ABC",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "26",
+        "question_type": "多选题",
+        "question_text": "一纲四目归纳和平解决台湾的（）。",
+        "options": {
+            "A": "思想",
+            "B": "文件",
+            "C": "主张",
+            "D": "政策"
+        },
+        "correct_answer": "ACD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "27",
+        "question_type": "多选题",
+        "question_text": "第一代领导集体理论（）。",
+        "options": {
+            "A": "分不发达、比较发达",
+            "B": "农轻重为序",
+            "C": "三个面向文化",
+            "D": "两步走四个现代化"
+        },
+        "correct_answer": "ABD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "28",
+        "question_type": "多选题",
+        "question_text": "科教观点（）。",
+        "options": {
+            "A": "向科学进军",
+            "B": "德智体全面发展",
+            "C": "科技是第一生产力",
+            "D": "四化关键在科技"
+        },
+        "correct_answer": "ABD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "29",
+        "question_type": "多选题",
+        "question_text": "长期共存互相监督前提（）。",
+        "options": {
+            "A": "马克思主义",
+            "B": "人民民主专政",
+            "C": "社会主义道路",
+            "D": "党的领导"
+        },
+        "correct_answer": "CD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "30",
+        "question_type": "多选题",
+        "question_text": "1956年后毛泽东新思想（）。",
+        "options": {
+            "A": "改革开放",
+            "B": "第二次结合",
+            "C": "独立自主道路",
+            "D": "以苏为鉴"
+        },
+        "correct_answer": "BCD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "31",
+        "question_type": "多选题",
+        "question_text": "探索成果著作（）。",
+        "options": {
+            "A": "《论人民民主专政》",
+            "B": "《论十大关系》",
+            "C": "《关于正确处理人民内部矛盾的问题》",
+            "D": "《实践论》"
+        },
+        "correct_answer": "BC",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "32",
+        "question_type": "多选题",
+        "question_text": "《论十大关系》提出（）。",
+        "options": {
+            "A": "改革开放道路",
+            "B": "以苏为鉴独立自主",
+            "C": "社会主义民主政治",
+            "D": "调动一切积极因素"
+        },
+        "correct_answer": "BCD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "33",
+        "question_type": "多选题",
+        "question_text": "八大主要矛盾（）。",
+        "options": {
+            "A": "无产阶级资产阶级矛盾",
+            "B": "人民经济文化需要同落后生产矛盾",
+            "C": "先进工业国与落后农业国矛盾",
+            "D": "物质文化需要同落后社会生产矛盾"
+        },
+        "correct_answer": "BC",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "34",
+        "question_type": "多选题",
+        "question_text": "民主方法即（）。",
+        "options": {
+            "A": "斗争",
+            "B": "讨论",
+            "C": "专政",
+            "D": "说服教育"
+        },
+        "correct_answer": "BD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "35",
+        "question_type": "多选题",
+        "question_text": "提出资本主义经济作补充（）。",
+        "options": {
+            "A": "邓小平",
+            "B": "刘少奇",
+            "C": "周恩来",
+            "D": "毛泽东"
+        },
+        "correct_answer": "BCD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "36",
+        "question_type": "多选题",
+        "question_text": "处理人民内部矛盾方针（）。",
+        "options": {
+            "A": "双百方针",
+            "B": "统筹兼顾适当安排",
+            "C": "长期共存互相监督",
+            "D": "有理有利有节"
+        },
+        "correct_answer": "ABC",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "37",
+        "question_type": "多选题",
+        "question_text": "出现（）倾向。",
+        "options": {
+            "A": "急于求成",
+            "B": "急躁冒进",
+            "C": "保守",
+            "D": "墨守成规"
+        },
+        "correct_answer": "AB",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "38",
+        "question_type": "多选题",
+        "question_text": "执政党后（）不适应发展。",
+        "options": {
+            "A": "权力未过分集中",
+            "B": "任务繁重复杂",
+            "C": "任务不繁重",
+            "D": "权力过分集中"
+        },
+        "correct_answer": "BD",
+        "error_count": 0,
+        "correct_count": 0
+    },
+    {
+        "question_number": "39",
+        "question_type": "多选题",
+        "question_text": "建设成为（）强国。",
+        "options": {
+            "A": "现代农业",
+            "B": "现代科技",
+            "C": "现代国防",
+            "D": "现代工业"
+        },
+        "correct_answer": "ABCD",
+        "error_count": 0,
+        "correct_count": 0
+    }
+]
