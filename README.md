@@ -39,6 +39,23 @@ go build -o Meow-Politics-Helper.exe .
 .\Meow-Politics-Helper.exe
 ```
 
+### 打包发布
+
+以当前仓库结构为准，在项目根目录运行：
+
+```powershell
+.\raw\script\build-release.ps1
+```
+
+脚本会生成：
+
+```text
+release\Meow-Politics-Helper-windows-amd64.exe
+release\Meow-Politics-Helper-windows-amd64.exe.sha256
+```
+
+题库、页面和样式会被嵌入 exe。用户数据默认写入 exe 所在目录下的 `user_data\`；如果该目录不可写，程序会回退到当前目录或系统用户配置目录。也可以通过 `MEOW_POLITICS_USER_DATA_DIR` 指定用户数据目录。
+
 ## 题库说明
 
 出题老师（仅列姓氏）包括林、王、阮、潘、杨、钱、罗、黄

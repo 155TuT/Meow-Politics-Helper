@@ -26,6 +26,7 @@ var (
 	xigaiLiQuestionsByChapter          map[string][]Question   // 习概（李老师）题目
 	xigaiYangQuestionsByChapter        map[string][]Question   // 习概（杨老师）题目
 	questionMapByID                    map[string]Question     // 通过唯一ID (课程_章节_索引) 快速查找原始题目
+	userDataRoot                       string                  // 运行时实际使用的用户数据根目录
 	userSessions                       map[string]*UserSession // 内存中的用户会话
 	sessionsMu                         sync.RWMutex            // 保护 userSessions 映射
 )
@@ -41,9 +42,7 @@ func init() {
 	userSessions = make(map[string]*UserSession)
 
 	// 确保用户数据根目录存在
-	if err := os.MkdirAll(userDataBaseDir, os.ModePerm); err != nil {
-		log.Fatalf("无法创建用户数据目录 %s: %v", userDataBaseDir, err)
-	}
+	userDataRoot = initUserDataRoot()
 	loadAllQuestionsGlobal() // 加载所有题目到内存
 }
 
@@ -145,14 +144,83 @@ func normalizeCourseKey(course string) string {
 	}
 }
 
+func initUserDataRoot() string {
+	candidates := userDataRootCandidates()
+	var lastErr error
+
+	for _, dir := range candidates {
+		if err := os.MkdirAll(dir, os.ModePerm); err != nil {
+			lastErr = err
+			log.Printf("警告: 无法创建用户数据目录 %s: %v", dir, err)
+			continue
+		}
+
+		absDir, err := filepath.Abs(dir)
+		if err != nil {
+			absDir = dir
+		}
+		log.Printf("用户数据目录: %s", absDir)
+		return dir
+	}
+
+	log.Fatalf("无法创建用户数据目录，最后一次错误: %v", lastErr)
+	return userDataBaseDir
+}
+
+func userDataRootCandidates() []string {
+	if envDir := strings.TrimSpace(os.Getenv("MEOW_POLITICS_USER_DATA_DIR")); envDir != "" {
+		return []string{envDir}
+	}
+
+	candidates := []string{}
+	if exePath, err := os.Executable(); err == nil && !isGoRunTempExecutable(exePath) {
+		candidates = append(candidates, filepath.Join(filepath.Dir(exePath), userDataBaseDir))
+	}
+
+	candidates = append(candidates, userDataBaseDir)
+
+	if configDir, err := os.UserConfigDir(); err == nil {
+		candidates = append(candidates, filepath.Join(configDir, "Meow-Politics-Helper", userDataBaseDir))
+	}
+
+	return uniquePaths(candidates)
+}
+
+func isGoRunTempExecutable(exePath string) bool {
+	cleanExePath := strings.ToLower(filepath.Clean(exePath))
+	return strings.Contains(cleanExePath, "go-build") &&
+		strings.Contains(cleanExePath, strings.ToLower(filepath.Clean(os.TempDir())))
+}
+
+func uniquePaths(paths []string) []string {
+	seen := make(map[string]struct{}, len(paths))
+	unique := make([]string, 0, len(paths))
+	for _, path := range paths {
+		key := strings.ToLower(filepath.Clean(path))
+		if _, ok := seen[key]; ok {
+			continue
+		}
+		seen[key] = struct{}{}
+		unique = append(unique, path)
+	}
+	return unique
+}
+
+func getUserDataRoot() string {
+	if userDataRoot != "" {
+		return userDataRoot
+	}
+	return userDataBaseDir
+}
+
 // getUserDataPath 获取用户特定数据文件的完整路径
 func getUserDataPath(userID, fileName string) string {
-	return filepath.Join(userDataBaseDir, userID, fileName)
+	return filepath.Join(getUserDataRoot(), userID, fileName)
 }
 
 // ensureUserDir 确保用户的个人数据目录存在，如果不存在则创建
 func ensureUserDir(userID string) error {
-	return os.MkdirAll(filepath.Join(userDataBaseDir, userID), os.ModePerm)
+	return os.MkdirAll(filepath.Join(getUserDataRoot(), userID), os.ModePerm)
 }
 
 // loadUserJSONData 加载用户特定的JSON数据文件到指定的结构体
@@ -376,7 +444,7 @@ func InitSessionHandler(ctx context.Context, c *app.RequestContext) {
 	userID := req.UserID
 
 	// 检查用户数据目录是否存在，以判断是新用户还是返回用户
-	userDir := filepath.Join(userDataBaseDir, userID)
+	userDir := filepath.Join(getUserDataRoot(), userID)
 	isNewUser := false
 	if _, err := os.Stat(userDir); os.IsNotExist(err) {
 		isNewUser = true

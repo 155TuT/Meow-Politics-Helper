@@ -4,6 +4,7 @@ import (
 	"context"
 	"embed"
 	"log"
+	"os"
 	"os/exec"
 	"runtime"
 	"strings"
@@ -124,10 +125,19 @@ func main() {
 	log.Println("喵喵学习小助手 Go 后端已启动，监听于 http://0.0.0.0:8899")
 
 	// 启动goroutine在服务器启动后打开浏览器
-	go func() {
-		time.Sleep(1 * time.Second) // 等待服务器启动
-		openBrowser("http://localhost:8899")
-	}()
+	if shouldAutoOpenBrowser() {
+		go func() {
+			time.Sleep(1 * time.Second) // 等待服务器启动
+			openBrowser("http://localhost:8899")
+		}()
+	} else {
+		log.Println("已通过 MEOW_POLITICS_NO_BROWSER 禁用自动打开浏览器。")
+	}
 
 	h.Spin() // 启动服务器并开始监听请求
+}
+
+func shouldAutoOpenBrowser() bool {
+	value := strings.TrimSpace(strings.ToLower(os.Getenv("MEOW_POLITICS_NO_BROWSER")))
+	return value != "1" && value != "true" && value != "yes"
 }
